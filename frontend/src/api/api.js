@@ -1,7 +1,7 @@
 // api.js
 import axios from 'axios';
 
-const BASE_URL = 'http://localhost:5000/auth';
+const BASE_URL = 'https://tunisairproject.azurewebsites.net/auth';
 
 export const signup = async (formData) => {
   try {

@@ -33,7 +33,7 @@ const Landing = () => {
           return;
         }
 
-        const response = await fetch('http://localhost:5000/landing', {
+        const response = await fetch('https://tunisairproject.azurewebsites.net/landing', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',

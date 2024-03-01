@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const BASE_URL = 'http://localhost:5000/affectation';
+const BASE_URL = 'https://tunisairproject.azurewebsites.net/affectation';
 
 // Create a new affectation
 export const createAffectation = async (affectationData) => {

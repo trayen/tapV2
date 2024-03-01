@@ -1,6 +1,6 @@
 // api.js
 
-const BASE_URL = 'http://localhost:5000/filter';
+const BASE_URL = 'https://tunisairproject.azurewebsites.net/filter';
 
 const fetchData = async (routeName) => {
   try {
