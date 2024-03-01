@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const BASE_URL = 'https://tunisairproject.azurewebsites.net/employee';
+const BASE_URL = 'http://localhost:5000/employee';
 
 // Create a new employee
 export const createEmployee = async (employeeData, authToken) => {

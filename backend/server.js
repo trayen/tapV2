@@ -41,12 +41,13 @@ app.use('/filter', filter);
 app.use('/employee', employeeRoute);
 app.use('/bureau', bureauRoute);
 app.use('/affectation', affectationRoute);
-//production
+//production/*
+/*
 app.use(express.static("../frontend/build"));
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname,"frontend","build","index"))
 })
-
+*/
 // Start the server
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);

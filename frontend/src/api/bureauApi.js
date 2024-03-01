@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = 'https://tunisairproject.azurewebsites.net/bureau';
+const API_URL = 'http://localhost:5000/bureau';
 
 // Create a new bureau
 export const createBureau = async (bureauData) => {
