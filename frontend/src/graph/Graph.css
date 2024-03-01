@@ -1,0 +1,26 @@
+/* Add this CSS in your Graph.css file */
+.bureau-info {
+  border: 1px solid #ccc;
+  margin: 5px;
+  padding: 5px;
+}
+
+.bureau-info.available {
+  background-color: green; /* or any other color for available (false) */
+}
+
+.bureau-info.unavailable {
+  background-color: red; /* or any other color for unavailable (true) */
+}
+
+
+.show {
+  display: block;
+}
+
+.hide {
+  display: none;
+}
+.match {
+  background-color: lightblue;
+}

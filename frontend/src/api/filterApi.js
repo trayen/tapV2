@@ -1,0 +1,35 @@
+// api.js
+
+const BASE_URL = 'http://localhost:5000/filter';
+
+const fetchData = async (routeName) => {
+  try {
+    const response = await fetch(`${BASE_URL}/${routeName}`);
+    
+    if (!response.ok) {
+      throw new Error(`Error: ${response.status} - ${response.statusText}`);
+    }
+
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error('API Error:', error.message);
+    throw error;
+  }
+};
+
+export const getEmployeesWithAffectation = async () => {
+  return fetchData('employees/with-affectation');
+};
+
+export const getEmployeesWithoutAffectation = async () => {
+  return fetchData('employees/without-affectation');
+};
+
+export const getBureausWithAffectation = async () => {
+  return fetchData('bureaus/with-affectation');
+};
+
+export const getBureausWithoutAffectation = async () => {
+  return fetchData('bureaus/without-affectation');
+};
