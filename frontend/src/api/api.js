@@ -1,11 +1,13 @@
-// api.js
 import axios from 'axios';
+import BASE_URL from './root';
 
-const BASE_URL = 'http://localhost:5000/auth';
+const signupPath = '/auth/signup';
+const loginPath = '/auth/login';
+const logoutPath = '/auth/logout';
 
 export const signup = async (formData) => {
   try {
-    const response = await axios.post(`${BASE_URL}/signup`, formData);
+    const response = await axios.post(`${BASE_URL}${signupPath}`, formData);
     
     // Check if response has data property
     if (response.data) {
@@ -23,7 +25,7 @@ export const signup = async (formData) => {
 // User Login
 export const login = async (userData) => {
   try {
-    const response = await axios.post(`${BASE_URL}/login`, userData);
+    const response = await axios.post(`${BASE_URL}${loginPath}`, userData);
     
     // Check if response has data property
     if (response.data) {
@@ -41,7 +43,7 @@ export const login = async (userData) => {
 // User Logout
 export const logout = async (token) => {
   try {
-    const response = await axios.post(`${BASE_URL}/logout`, { token });
+    const response = await axios.post(`${BASE_URL}${logoutPath}`, { token });
 
     // Check if response has data property
     if (response.data) {

@@ -1,11 +1,11 @@
 import axios from 'axios';
+import API_BASE_URL from './root';
 
-const BASE_URL = 'http://localhost:5000/affectation';
+const AFFECTATION_PATH = '/affectation';
 
-// Create a new affectation
 export const createAffectation = async (affectationData) => {
   try {
-    const response = await axios.post(BASE_URL, affectationData);
+    const response = await axios.post(`${API_BASE_URL}${AFFECTATION_PATH}`, affectationData);
     return response.data;
   } catch (error) {
     console.error('Error creating affectation:', error.response.data); // Log the detailed error response
@@ -13,11 +13,9 @@ export const createAffectation = async (affectationData) => {
   }
 };
 
-
-// Get all affectations
 export const getAllAffectations = async () => {
   try {
-    const response = await axios.get(BASE_URL);
+    const response = await axios.get(`${API_BASE_URL}${AFFECTATION_PATH}`);
     return response.data;
   } catch (error) {
     console.error('Error getting affectations:', error);
@@ -25,10 +23,9 @@ export const getAllAffectations = async () => {
   }
 };
 
-// Get affectation by ID
 export const getAffectationById = async (id) => {
   try {
-    const response = await axios.get(`${BASE_URL}/${id}`);
+    const response = await axios.get(`${API_BASE_URL}${AFFECTATION_PATH}/${id}`);
     return response.data;
   } catch (error) {
     console.error('Error getting affectation by ID:', error);
@@ -36,7 +33,6 @@ export const getAffectationById = async (id) => {
   }
 };
 
-// Update affectation by ID
 export const updateAffectationById = async (id, formData) => {
   try {
     // Set headers for FormData
@@ -46,7 +42,7 @@ export const updateAffectationById = async (id, formData) => {
       },
     };
 
-    const response = await axios.put(`${BASE_URL}/${id}`, formData, config);
+    const response = await axios.put(`${API_BASE_URL}${AFFECTATION_PATH}/${id}`, formData, config);
     return response.data;
   } catch (error) {
     console.error('Error updating affectation:', error);
@@ -54,11 +50,9 @@ export const updateAffectationById = async (id, formData) => {
   }
 };
 
-
-// Delete affectation by ID
 export const deleteAffectationById = async (id) => {
   try {
-    const response = await axios.delete(`${BASE_URL}/${id}`);
+    const response = await axios.delete(`${API_BASE_URL}${AFFECTATION_PATH}/${id}`);
     return response.data;
   } catch (error) {
     console.error('Error deleting affectation:', error);

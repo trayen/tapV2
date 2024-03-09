@@ -13,9 +13,10 @@ router.post('/signup', async (req, res) => {
     const newUser = new User({ username, email, password });
     await newUser.save();
     res.status(201).json({ message: 'User created successfully' });
+
   } catch (error) {
     console.error("Error while signing up");
-    res.status(500).json({ error: 'Internal Server Error' });
+    res.status(500).json({ error: error.message });
   }
 });
 

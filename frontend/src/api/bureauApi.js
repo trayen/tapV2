@@ -1,11 +1,11 @@
 import axios from 'axios';
+import API_BASE_URL from './root';
 
-const API_URL = 'http://localhost:5000/bureau';
+const BUREAU_PATH = '/bureau';
 
-// Create a new bureau
 export const createBureau = async (bureauData) => {
   try {
-    const response = await axios.post(API_URL, bureauData);
+    const response = await axios.post(`${API_BASE_URL}${BUREAU_PATH}`, bureauData);
     return response.data;
   } catch (error) {
     console.error('Error creating bureau:', error);
@@ -13,10 +13,9 @@ export const createBureau = async (bureauData) => {
   }
 };
 
-// Get all bureaus
 export const getAllBureaus = async () => {
   try {
-    const response = await axios.get(API_URL);
+    const response = await axios.get(`${API_BASE_URL}${BUREAU_PATH}`);
     return response.data;
   } catch (error) {
     console.error('Error getting bureaus:', error);
@@ -24,20 +23,18 @@ export const getAllBureaus = async () => {
   }
 };
 
-// Get bureau by ID
 export const getBureauById = async (bureauId) => {
   try {
-    const response = await axios.get(`${API_URL}/${bureauId}`);
+    const response = await axios.get(`${API_BASE_URL}${BUREAU_PATH}/${bureauId}`);
     return response.data;
   } catch (error) {
     throw error;
   }
 };
 
-// Update bureau by ID
 export const updateBureauById = async (bureauId, bureauData) => {
   try {
-    const response = await axios.put(`${API_URL}/${bureauId}`, bureauData);
+    const response = await axios.put(`${API_BASE_URL}${BUREAU_PATH}/${bureauId}`, bureauData);
     return response.data;
   } catch (error) {
     console.error('Error updating bureau by ID:', error);
@@ -45,10 +42,9 @@ export const updateBureauById = async (bureauId, bureauData) => {
   }
 };
 
-// Delete bureau by ID
 export const deleteBureauById = async (bureauId) => {
   try {
-    const response = await axios.delete(`${API_URL}/${bureauId}`);
+    const response = await axios.delete(`${API_BASE_URL}${BUREAU_PATH}/${bureauId}`);
     return response.data;
   } catch (error) {
     console.error('Error deleting bureau by ID:', error);

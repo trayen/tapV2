@@ -1,10 +1,9 @@
-// api.js
-
-const BASE_URL = 'http://localhost:5000/filter';
+import API_BASE_URL from './root'; 
+const BASE_PATH = '/filter';
 
 const fetchData = async (routeName) => {
   try {
-    const response = await fetch(`${BASE_URL}/${routeName}`);
+    const response = await fetch(`${API_BASE_URL}${BASE_PATH}/${routeName}`);
     
     if (!response.ok) {
       throw new Error(`Error: ${response.status} - ${response.statusText}`);

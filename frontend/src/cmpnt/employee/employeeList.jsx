@@ -142,76 +142,81 @@ const EmployeeList = () => {
         />
         <br />
       </Form.Group>
-      {filteredEmployees.map((employee) => (
-        <div key={employee._id}>
-          <Form>
-            <Card className="mb-3">
-              <Card.Body>
-                <div className="info">
-                  <Card.Title>{employee.name}</Card.Title>
-                  <div className="employee-info">
-                    <strong>Matricule :</strong> {employee.matricule}
-                  </div>
-                  <div className="employee-info">
-                    <strong>Emploi :</strong> {employee.emploi}
-                  </div>
-                </div>
-                <Button
-                  onClick={() => toggleAffectation(employee)}
-                  aria-controls={`affectation-${employee._id}`}
-                  aria-expanded={openAffectation === employee._id}
-                  variant="primary"
-                  className="mr-2"
-                >
-                  Afficher l'Affectation
-                </Button>
-               
-                <Collapse in={openAffectation === employee._id}>
-                  <div id={`affectation-${employee._id}`} className="mt-2">
-                    {affectationDetails && (
-                      <div>
-                        <h5>Détails de l'Affectation</h5>
-                        <div>
-                          <strong>Détails du Bureau :</strong>
-                          <p>
-                            <strong>Numéro :</strong> {affectationDetails.bureau.number}
-                          </p>
-                          <p>
-                            <strong>Bloc :</strong> {affectationDetails.bureau.bloc}
-                          </p>
-                          <p>
-                            <strong>Niveau :</strong> {affectationDetails.bureau.level}
-                          </p>
-                        </div>
-                      </div>
-                    )}
-                    {!affectationDetails && (
-                      <div>
-                        <p>Aucune affectation pour cet employé</p>
-                      </div>
-                    )}
-                  </div>
-                </Collapse>
-              </Card.Body>
 
-              <Card.Footer className="d-flex flex-column">
-              <Button variant="danger" onClick={() => handleShowDeleteModal(employee._id)}>
-                  Supprimer
-                </Button>
-                <br />
-                <Button
-                  variant="success"
-                  size="md"
-                  onClick={() => handleUpdate(employee)}
-                  className="mb-2"
-                >
-                  Mettre à jour
-                </Button>
-              </Card.Footer>
-            </Card>
-          </Form>
-        </div>
-      ))}
+      {Array.isArray(filteredEmployees) ? (
+        filteredEmployees.map((employee) => (
+          <div key={employee._id}>
+            <Form>
+              <Card className="mb-3">
+                <Card.Body>
+                  <div className="info">
+                    <Card.Title>{employee.name}</Card.Title>
+                    <div className="employee-info">
+                      <strong>Matricule :</strong> {employee.matricule}
+                    </div>
+                    <div className="employee-info">
+                      <strong>Emploi :</strong> {employee.emploi}
+                    </div>
+                  </div>
+                  <Button
+                    onClick={() => toggleAffectation(employee)}
+                    aria-controls={`affectation-${employee._id}`}
+                    aria-expanded={openAffectation === employee._id}
+                    variant="primary"
+                    className="mr-2"
+                  >
+                    Afficher l'Affectation
+                  </Button>
+
+                  <Collapse in={openAffectation === employee._id}>
+                    <div id={`affectation-${employee._id}`} className="mt-2">
+                      {affectationDetails && (
+                        <div>
+                          <h5>Détails de l'Affectation</h5>
+                          <div>
+                            <strong>Détails du Bureau :</strong>
+                            <p>
+                              <strong>Numéro :</strong> {affectationDetails.bureau.number}
+                            </p>
+                            <p>
+                              <strong>Bloc :</strong> {affectationDetails.bureau.bloc}
+                            </p>
+                            <p>
+                              <strong>Niveau :</strong> {affectationDetails.bureau.level}
+                            </p>
+                          </div>
+                        </div>
+                      )}
+                      {!affectationDetails && (
+                        <div>
+                          <p>Aucune affectation pour cet employé</p>
+                        </div>
+                      )}
+                    </div>
+                  </Collapse>
+                </Card.Body>
+
+                <Card.Footer className="d-flex flex-column">
+                  <Button variant="danger" onClick={() => handleShowDeleteModal(employee._id)}>
+                    Supprimer
+                  </Button>
+                  <br />
+                  <Button
+                    variant="success"
+                    size="md"
+                    onClick={() => handleUpdate(employee)}
+                    className="mb-2"
+                  >
+                    Mettre à jour
+                  </Button>
+                </Card.Footer>
+              </Card>
+            </Form>
+          </div>
+        ))
+      ) : (
+        <p>No employees found</p>
+      )}
       <Modal show={showUpdateModal} onHide={handleModalClose}>
         <Modal.Header closeButton>
           <Modal.Title>Mettre à jour l'Employé</Modal.Title>

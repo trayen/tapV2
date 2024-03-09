@@ -22,7 +22,7 @@ const Login = () => {
       setLoading(true);
 
       const response = await login(formData);
-      console.log(response);
+      //console.log(response);
 
       // Store the token in local storage
       localStorage.setItem('token', response.token);
@@ -66,7 +66,7 @@ const Login = () => {
           {/* Add your image here */}
           <img
             src="https://www.businessnews.com.tn/images/album/IMGBN46134tunisair.jpg" // Replace with the actual image link
-            alt="Sample Image"
+            alt="Sample"
             className="img-fluid"
           />
         </div>
