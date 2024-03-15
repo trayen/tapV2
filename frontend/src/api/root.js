@@ -1,4 +1,4 @@
-const apiBaseUrl = 'http://192.168.43.150:5000'; 
+const apiBaseUrl = 'http://52.158.35.155:5000'; 
 
 export default apiBaseUrl;
 

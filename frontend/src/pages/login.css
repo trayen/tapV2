@@ -1,0 +1,79 @@
+/* Login.css */
+html,
+body {
+    background-color: rgba(0, 0, 0, 0.402);
+    margin: 0;
+    /* Reset default margins */
+    padding: 0;
+    /* Reset default padding */
+}
+
+.login-container {
+    display: flex;
+    flex-direction: column;
+    /* Stack elements vertically by default */
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+    /* Add relative positioning */
+}
+
+.login-form {
+    background-color: rgba(255, 247, 247, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    width: 400px;
+}
+
+.login-form h2 {
+    margin-bottom: 20px;
+}
+
+.login-gif {
+    transform: scale(0.5);
+    /* Scale down the size to 50% */
+}
+
+.tunisair-service {
+    font-size: 36px;
+    /* Adjust font size */
+    font-weight: bold;
+    color: white;
+    position: absolute;
+    /* Add absolute positioning */
+    top: 20px;
+    /* Adjust top position */
+    left: 50%;
+    /* Center horizontally */
+    transform: translateX(-50%);
+    /* Center horizontally */
+    z-index: 1;
+    /* Ensure it's above other elements */
+}
+
+@media (max-width: 767px) {
+    .tunisair-service {
+        display: none; /* Hide Tunisair service on small screens */
+    }
+}
+
+@media (min-width: 768px) {
+    .login-container {
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .login-form {
+        margin-right: 20px;
+    }
+
+    .login-gif {
+        max-width: none;
+        width: 50%;
+    }
+
+    .tunisair-service {
+        display: block; /* Show Tunisair service on larger screens */
+    }
+}

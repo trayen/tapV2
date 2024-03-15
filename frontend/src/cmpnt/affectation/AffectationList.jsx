@@ -3,6 +3,7 @@ import { getAllAffectations, deleteAffectationById, updateAffectationById } from
 import { getBureauById, getAllBureaus } from '../../api/bureauApi';
 import { getBureausWithoutAffectation, getEmployeesWithoutAffectation } from '../../api/filterApi';
 import { Card, Button, Collapse, Form, Col, Modal } from 'react-bootstrap';
+import apiBaseUrl from '../../api/root'
 
 const AffectationList = () => {
   const [affectations, setAffectations] = useState([]);
@@ -169,7 +170,7 @@ const AffectationList = () => {
               <Card className="mb-3" style={{ width: '100%' }}>
                 <Card.Img
                   variant="top"
-                  src={`http://localhost:5000/assets/${affectation.decision}`}
+                  src={`${apiBaseUrl}/assets/${affectation.decision}`}
                   style={{ width: '100%', height: '200px' }}
                 />
                 <Card.Body>

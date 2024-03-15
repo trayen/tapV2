@@ -20,7 +20,7 @@ code {
 .sidebar {
   height: 100vh;
   width: 30%;
-  background-color: #333;
+  background-color: #402B3A;
   color: white;
   padding: 20px;
   box-sizing: border-box;
@@ -36,10 +36,12 @@ code {
 .sidebar ul {
   list-style: none;
   padding: 0;
+  text-decoration: none;
+
 }
 
 .sidebar-button {
-  background-color: #4CAF50;
+  background-color: #FF9BD2;
   color: white;
   border: none;
   padding: 10px 20px;
@@ -55,13 +57,14 @@ code {
 }
 
 .sidebar-button:hover {
-  background-color: #45a049;
+  background-color: #D63484;
 }
 
 .landing-content {
   flex-grow: 1; /* Allow content area to grow and take remaining space */
   overflow-y: auto; /* Enable vertical scrolling if content exceeds height */
   padding: 20px; /* Add padding as needed */
+  background-color: #F8F4EC;
 }
 
 .employee-info:hover {
